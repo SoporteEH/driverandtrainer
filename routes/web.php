@@ -27,21 +27,11 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/jobs/create', function () {
-        return view('jobs.create');
-    })->name('jobs.create');
-
-    Route::get('/jobs', function () {
-        return view('jobs.index');
-    })->name('jobs.index');
-    
-    Route::get('/jobs/{job}', function (App\Models\TransportJob $job) {
-        return view('jobs.show', compact('job'));
-    })->name('jobs.show');
-
-    Route::get('/jobs/{job}/edit', function (App\Models\TransportJob $job) {
-        return view('jobs.edit', compact('job'));
-    })->name('jobs.edit')->can('update', 'job');
+    Route::get('/jobs', [App\Http\Controllers\TransportJobController::class, 'index'])->name('jobs.index');
+    Route::get('/jobs/create', [App\Http\Controllers\TransportJobController::class, 'create'])->name('jobs.create');
+    Route::get('/jobs/{job}', [App\Http\Controllers\TransportJobController::class, 'show'])->name('jobs.show');
+    Route::get('/jobs/{job}/edit', [App\Http\Controllers\TransportJobController::class, 'edit'])->name('jobs.edit');
+    Route::delete('/jobs/{job}', [App\Http\Controllers\TransportJobController::class, 'destroy'])->name('jobs.destroy');
 
     Route::delete('/expenses/{expense}', [App\Http\Controllers\ExpenseController::class, 'destroy'])
         ->name('expenses.destroy');

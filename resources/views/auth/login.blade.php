@@ -11,6 +11,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
 
+        <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo.svg') }}">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -18,9 +20,9 @@
     <body class="font-sans text-gray-900 antialiased bg-gray-50 dark:bg-gray-900">
         <section class="bg-gray-50 dark:bg-gray-900">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <a href="#" class="flex items-center gap-2 mb-6 text-2xl font-bold text-gray-900 dark:text-white">
-                    <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="block dark:hidden h-10 w-auto">
-                    <img src="{{ asset('images/logo-dark.svg') }}" alt="Logo Dark" class="hidden dark:block h-10 w-auto">
+                <a href="#" class="flex items-center gap-6 mb-4 text-2xl font-bold text-gray-900 dark:text-gray-300">
+                    <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="block dark:hidden h-16 w-auto">
+                    <img src="{{ asset('images/logo-dark.svg') }}" alt="Logo Dark" class="hidden dark:block h-16 w-auto">
                     Driver&Trainer
                 </a>
                 <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

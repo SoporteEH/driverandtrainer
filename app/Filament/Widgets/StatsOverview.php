@@ -13,16 +13,15 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Trabajos (Mes)', TransportJob::whereMonth('date', now()->month)->count())
-                ->description('Trabajos en este mes')
-                ->descriptionIcon('heroicon-m-truck')
+            Stat::make('Total Trabajos (Mes)', TransportJob::whereMonth('date', now()->month)->whereYear('date', now()->year)->count())
+                ->description('Histórico total: ' . TransportJob::count())
                 ->color('success'),
-            Stat::make('Empleados Activos', User::role('user')->count())
-                ->description('Total de conductores')
+            Stat::make('Usuarios Activos', User::role('user')->count())
+                ->description('Total de usuarios')
                 ->descriptionIcon('heroicon-m-users')
                 ->color('primary'),
             Stat::make('Gastos Subidos', Expense::count())
-                ->description('Justificantes en el sistema')
+                ->description('Gastos en el sistema')
                 ->descriptionIcon('heroicon-m-document-text')
                 ->color('warning'),
         ];

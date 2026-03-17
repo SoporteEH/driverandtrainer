@@ -54,11 +54,21 @@
                     <td class="px-6 py-4">{{ $job->location }}</td>
                     <td class="px-6 py-4">{{ $job->date->format('d/m/Y') }}</td>
                     <td class="px-6 py-4">{{ $job->van }}</td>
-                    <td class="px-6 py-4 text-right flex justify-end space-x-3">
+                    <td class="px-6 py-4 text-right flex justify-end items-center space-x-3">
                         <a href="{{ route('jobs.show', $job) }}" class="font-bold text-blue-600 dark:text-blue-500 hover:underline">Ver</a>
                         
                         @if($job->isEditable())
                         <a href="{{ route('jobs.edit', $job) }}" class="font-bold text-yellow-600 dark:text-yellow-500 hover:underline">Editar</a>
+                        
+                        <form id="delete-job-form-{{ $job->id }}" action="{{ route('jobs.destroy', $job) }}" method="POST" class="hidden">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <button type="button" 
+                                onclick="window['open_del-job-modal']('delete-job-form-{{ $job->id }}')"
+                                class="font-bold text-red-600 dark:text-red-500 hover:underline cursor-pointer">
+                            Eliminar
+                        </button>
                         @endif
                     </td>
                 </tr>

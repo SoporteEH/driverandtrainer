@@ -12,4 +12,9 @@
             <livewire:jobs-table />
         </div>
     </div>
+    <x-delete-confirmation 
+        id="del-job-modal" 
+        title="Eliminar Trabajo" 
+        message="¿Estás seguro de que deseas eliminar este trabajo completo junto con todos sus gastos? Esta acción no se puede deshacer." />
+
 </x-app-layout>

@@ -37,7 +37,7 @@ class ExpenseResource extends Resource
 
                 // Bulk creation section (only visible on create)
                 Forms\Components\Repeater::make('bulk_expenses')
-                    ->label('Adjuntar Justificantes por Categoría')
+                    ->label('Adjuntar gastos por Categoría')
                     ->visibleOn('create')
                     ->schema([
                         Forms\Components\Grid::make(2)
@@ -133,6 +133,12 @@ class ExpenseResource extends Resource
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('type')
                     ->label('Tipo')
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'fuel' => 'Gasoil',
+                        'food' => 'Comida',
+                        'promoter' => 'Promotora',
+                        default => $state,
+                    })
                     ->colors([
                         'warning' => 'fuel',
                         'success' => 'food',

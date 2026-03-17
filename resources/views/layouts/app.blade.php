@@ -11,20 +11,22 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
 
+        <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo.svg') }}">
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
     <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <div class="min-h-screen">
-            <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
+                    <div class="flex justify-between h-20">
                         <div class="flex">
-                            <div class="shrink-0 flex items-center gap-2">
-                                <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="block dark:hidden h-8 w-auto">
-                                <img src="{{ asset('images/logo-dark.svg') }}" alt="Logo Dark" class="hidden dark:block h-8 w-auto">
-                                <a href="{{ route('dashboard') }}" class="font-bold text-xl text-blue-600 dark:text-blue-500">
+                            <div class="shrink-0 flex items-center gap-4">
+                                <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="block dark:hidden h-12 w-auto scale-110">
+                                <img src="{{ asset('images/logo-dark.svg') }}" alt="Logo Dark" class="hidden dark:block h-12 w-auto scale-110">
+                                <a href="{{ route('dashboard') }}" class="font-extrabold text-3xl text-blue-600 dark:text-blue-500 tracking-tight">
                                     Driver & Trainer
                                 </a>
                             </div>
